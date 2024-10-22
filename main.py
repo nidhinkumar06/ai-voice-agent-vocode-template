@@ -10,7 +10,8 @@ from vocode.streaming.models.telephony import TwilioConfig
 # from pyngrok import ngrok
 # import sys
 from memory_config import config_manager
-from vocode.streaming.models.agent import ChatGPTAgentConfig
+# from vocode.streaming.models.agent import ChatGPTAgentConfig
+from vocode.streaming.models.agent import GroqAgentConfig
 from vocode.streaming.models.message import BaseMessage
 from vocode.streaming.telephony.server.base import (
     TwilioInboundCallConfig,
@@ -77,7 +78,14 @@ def get_assistant_instructions():
 # We'll use ChatGPT here, but you can import other models like
 # GPT4AllAgent and ChatAnthropicAgent.
 # Don't forget to set OPENAI_API_KEY!
-AGENT_CONFIG = ChatGPTAgentConfig(
+
+# AGENT_CONFIG = ChatGPTAgentConfig(
+#   initial_message=BaseMessage(text="Hello, who am I talking to?"),
+#   prompt_preamble=get_assistant_instructions(),
+#   generate_responses=True,
+# )
+
+AGENT_CONFIG = GroqAgentConfig(
   initial_message=BaseMessage(text="Hello, who am I talking to?"),
   prompt_preamble=get_assistant_instructions(),
   generate_responses=True,
