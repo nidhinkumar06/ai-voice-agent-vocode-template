@@ -1,4 +1,5 @@
-FROM python:3.9-bullseye
+# FROM python:3.9-bullseye
+FROM python:3.11.10
 
 # get portaudio and ffmpeg
 RUN apt-get update \
